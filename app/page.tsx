@@ -1,11 +1,9 @@
-import Sectio1 from "./components/hero"
-import Sectio2 from "./components/section2"
+import Hero from "./components/hero"
 
 export default function Home() {
   return (
     <div>
-     <Sectio1/>
-       <Sectio2/>
+     <Hero/>
 
     </div>
   );

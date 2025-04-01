@@ -17,6 +17,7 @@ const Navbar = () => {
     <div className="relative">
       <button
         onClick={() => setLangOpen(!langOpen)}
+        onBlur={() => setLangOpen(!langOpen)}
         className="flex items-center text-sm cursor-pointer"
       >
         {selectedLang}
@@ -44,8 +45,8 @@ const Navbar = () => {
   );
 
   return (
-<nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white">
-      <div className="flex items-center space-x-15 w-full">  
+<nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 ">
+      <div className="flex items-center space-x-15 bg-white px-11 py-1 rounded-2xl">  
         <div className="text-3xl mb-2 font-bold">logo</div>
 
         {/* Desktop Menu */}
@@ -60,12 +61,15 @@ const Navbar = () => {
 
       {/* Language & Contact Button */}
       <div className="hidden md:flex items-center space-x-12 relative">
+        <span className=" bg-white px-5 py-[14px] rounded-2xl">
+
         {languageDropdown}
-        <button className="bg-black text-white px-9 py-2 rounded-2xl">Contact</button>
+        </span>
+        <button className="bg-white text-black px-9 py-[13px] rounded-2xl">Contact</button>
       </div>
 
       {/* Mobile Menu Button */}
-      <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+      <button className="md:hidden bg-white py-2 px-3 ml-[9] rounded-sm" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "✖" : "☰"}
       </button>
 

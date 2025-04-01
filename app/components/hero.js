@@ -15,7 +15,7 @@ export default function Section1() {
   }, []);
 
   return (
-    <section className="h-screen flex flex-col md:flex-row items-center justify-between p-6 relative">
+    <section className="h-screen flex flex-col md:flex-row items-center justify-between p-6 relative md:mt-0 mt-5">
       {/* Background Zoom Animation */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full z-[-1] bg-cover bg-center"

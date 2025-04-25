@@ -29,8 +29,8 @@ export default function Section1() {
         }}
       />
       
-      {/* First Box - Text Section (Visible on all screen sizes) and  add this height above lg => lg:min-h-[750px]*/}
-      <div className="flex flex-col justify-center items-center z-[40] md:items-start text-center md:text-left mt-16 bg-white bg-opacity-20 p-12 w-full md:w-[50%] min-h-[600px] lg:min-h-[750px] relative md:rounded-l-3xl">
+      {/* First Box - Text Section (Visible on all screen sizes) and  add this height above lg => 2xl:min-h-[750px]*/}
+      <div className="flex flex-col justify-center items-center z-[40] md:items-start text-center md:text-left mt-16 bg-white bg-opacity-20 p-12 w-full md:w-[50%] min-h-[600px] 2xl:min-h-[750px] relative md:rounded-l-3xl">
         <p className="text-md text-gray-800">
           __ As an independent entity,<br /> we provide supportive and neutral<br /> governance to our coalition
         </p>
@@ -61,8 +61,8 @@ export default function Section1() {
         />
       </div>
 
-      {/* Second Box - Image Section (Hidden on smaller screens) and  add this height above lg => lg:min-h-[750px] */}
-      <div className="relative p-12 w-full md:w-[50%] min-h-[600px] lg:min-h-[750px]  mt-16 flex justify-center border-16 border-white rounded-r-3xl hidden md:flex"></div>
+      {/* Second Box - Image Section (Hidden on smaller screens) and  add this height above lg => 2xl:min-h-[750px] */}
+      <div className="relative p-12 w-full md:w-[50%] min-h-[600px] 2xl:min-h-[750px]  mt-16 flex justify-center border-16 border-white rounded-r-3xl hidden md:flex"></div>
 
       {/* Navbar */}
       <Navbar />

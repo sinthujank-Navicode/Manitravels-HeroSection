@@ -1,11 +1,10 @@
 "use client";
-import { useState } from "react";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("EN");
+  const [isOpen, setIsOpen] = useState(false);  // For the mobile menu
+  const [langOpen, setLangOpen] = useState(false);  // For the language dropdown
+  const [selectedLang, setSelectedLang] = useState("EN");  // Default language
 
   const menuItems = [
     { name: "Home", link: "#" },
@@ -13,11 +12,11 @@ const Navbar = () => {
     { name: "Services", link: "#" },
   ];
 
+  // Language dropdown
   const languageDropdown = (
     <div className="relative">
       <button
-        onClick={() => setLangOpen(!langOpen)}
-        onBlur={() => setLangOpen(!langOpen)}
+        onClick={() => setLangOpen(!langOpen)}  // Toggle dropdown on button click
         className="flex items-center text-sm cursor-pointer"
       >
         {selectedLang}
@@ -31,8 +30,8 @@ const Navbar = () => {
             <button
               key={lang}
               onClick={() => {
-                setSelectedLang(lang);
-                setLangOpen(false);
+                setSelectedLang(lang);  // Change language
+                setLangOpen(false);  // Close dropdown after selecting language
               }}
               className="block w-full text-left px-4 py-2 hover:bg-black hover:text-white"
             >
@@ -44,8 +43,20 @@ const Navbar = () => {
     </div>
   );
 
+  // Close the dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".language-dropdown")) {
+        setLangOpen(false);  // Close dropdown if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);  // Cleanup
+  }, []);
+
   return (
-<nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 ">
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 ">
       <div className="flex items-center space-x-15 bg-white px-11 py-1 rounded-2xl">  
         <div className="text-3xl mb-2 font-bold">logo</div>
 
@@ -60,10 +71,9 @@ const Navbar = () => {
       </div>
 
       {/* Language & Contact Button */}
-      <div className="hidden md:flex items-center space-x-12 relative">
+      <div className="hidden md:flex items-center space-x-12 relative language-dropdown">
         <span className=" bg-white px-5 py-[14px] rounded-2xl">
-
-        {languageDropdown}
+          {languageDropdown}  {/* Language dropdown */}
         </span>
         <button className="bg-white text-black px-9 py-[13px] rounded-2xl">Contact</button>
       </div>
@@ -81,7 +91,7 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          {languageDropdown}
+          {languageDropdown}  {/* Language dropdown for mobile */}
           <button className="bg-black text-white px-4 py-2 rounded-2xl">Contact</button>
         </div>
       )}
